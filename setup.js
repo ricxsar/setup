@@ -38,8 +38,8 @@ module.exports = function(){
 
 
 	// Date/Time
-	obj.clock.set = function(time) {
-		require('child_process').exec('date -s "'+time+'" ; hwclock --systohc;', cb);
+	obj.clock.set = function(milliseconds) {
+		require('child_process').exec('date +%s -s @'+milliseconds+' && hwclock --systohc;');
 	}
 
 
